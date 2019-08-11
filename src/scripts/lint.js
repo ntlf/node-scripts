@@ -18,7 +18,7 @@ async function eslint(args) {
     : ['--config', path.join(__dirname, '../config/eslintrc.js')];
   const ignore = hasIgnore
     ? []
-    : ['--ignore-path', path.join(__dirname, '../config/.eslintignore')];
+    : ['--ignore-path', path.join(__dirname, '../config/eslintignore')];
   const extensions = ['--ext', '.js,.ts'];
   const target = args.length > 0 ? [...args] : ['.'];
 

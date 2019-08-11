@@ -21,7 +21,7 @@ export default async function format(args) {
     : ['--config', path.join(__dirname, '../config/prettierrc.js')];
   const ignore = hasIgnore
     ? []
-    : ['--ignore-path', path.join(__dirname, '../config/.prettierignore')];
+    : ['--ignore-path', path.join(__dirname, '../config/prettierignore')];
   const target = args.length > 0 ? [...args] : ['**/*.+(js|json|ts|md)'];
 
   const bin = await resolveBin('prettier');
