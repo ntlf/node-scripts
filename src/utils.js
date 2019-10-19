@@ -3,7 +3,7 @@ import fs from 'fs';
 import readPkgUp from 'read-pkg-up';
 import which from 'which';
 
-const { package: pkg, path: pkgPath } = readPkgUp.sync({
+const { packageJson: pkg, path: pkgPath } = readPkgUp.sync({
   cwd: fs.realpathSync(process.cwd()),
 });
 
