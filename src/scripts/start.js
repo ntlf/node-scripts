@@ -1,8 +1,18 @@
 import spawn from 'cross-spawn';
 import path from 'path';
-import { resolveBin, hasOneOfFiles, hasPackageProperty } from '../utils';
+import {
+  resolveBin,
+  hasOneOfFiles,
+  hasPackageProperty,
+  loadEnvironmentFile,
+} from '../utils';
 
 export default async function start(args) {
+  process.env.BABEL_ENV = 'development';
+  process.env.NODE_ENV = 'development';
+
+  loadEnvironmentFile();
+
   const hasPresets =
     args.includes('--presets') ||
     hasOneOfFiles(['.babelrc', '.babelrc.js', 'babel.config.js']) ||

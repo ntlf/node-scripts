@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import readPkgUp from 'read-pkg-up';
 import which from 'which';
+import dotenv from 'dotenv';
 
 const { packageJson: pkg, path: pkgPath } = readPkgUp.sync({
   cwd: fs.realpathSync(process.cwd()),
@@ -49,4 +50,8 @@ export function hasOneOfFiles(fileNames) {
 
 export function hasPackageProperty(attribute) {
   return Object.keys(pkg).includes(attribute);
+}
+
+export function loadEnvironmentFile() {
+  dotenv.config();
 }
